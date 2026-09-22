@@ -1,0 +1,14 @@
+# Never commit secrets, keys, or customer data
+.env
+.env.*
+*.key
+*.pem
+customers*.csv
+orders*.csv
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+node_modules/

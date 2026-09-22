@@ -1,0 +1,204 @@
+/* The Eclectic Boon & Bane: 8-bit RPG look.
+   Original art only. No Nintendo/Toby Fox characters, logos, or assets. */
+:root {
+  --bg: #1a1a1a;       /* candlelit charcoal */
+  --black: #000;
+  --cream: #f4f1ea;    /* old-paper borders */
+  --green: #00f060;    /* interactive text and buttons */
+  --red: #ff0033;      /* hover / accent */
+  --muted: #a8a496;
+  --wood: #5a3a1c;
+  --wood-dark: #2a170a;
+  --pixel: "Press Start 2P", "Courier New", monospace;
+  --body: "VT323", "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { image-rendering: pixelated; scroll-behavior: auto; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--body);
+  font-size: 24px;
+  line-height: 1.25;
+  padding: 0 16px 32px;
+}
+
+.wrap { max-width: 1000px; margin: 0 auto; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+a { color: var(--green); }
+a:hover { color: var(--red); }
+:focus-visible { outline: 3px dashed var(--green); outline-offset: 3px; }
+
+h1, h2, h3, h4 { font-family: var(--pixel); font-weight: normal; line-height: 1.6; margin: 0 0 16px; }
+h1 { font-size: clamp(16px, 3.6vw, 24px); color: var(--green); text-shadow: 3px 3px 0 #000; }
+h2 { font-size: clamp(13px, 2.6vw, 18px); color: var(--cream); }
+h3 { font-size: 13px; color: var(--green); }
+h4 { font-size: 12px; color: var(--red); }
+p { margin: 0 0 14px; }
+
+/* White-bordered black block. Stepped corners come from four offset shadows. */
+.box {
+  background: var(--black);
+  margin: 4px;
+  padding: 20px;
+  box-shadow:
+    0 -4px 0 0 var(--cream), 0 4px 0 0 var(--cream),
+    -4px 0 0 0 var(--cream), 4px 0 0 0 var(--cream);
+}
+
+/* Buttons: [ LIKE THIS ] */
+.btn {
+  display: inline-block; font-family: var(--pixel); font-size: 11px; line-height: 1.4;
+  text-decoration: none; color: var(--green); background: var(--black);
+  padding: 12px 14px; margin: 6px 6px 6px 4px; border: 0; cursor: pointer;
+  box-shadow: 0 -3px 0 0 var(--cream), 0 3px 0 0 var(--cream), -3px 0 0 0 var(--cream), 3px 0 0 0 var(--cream);
+}
+.btn:hover, .btn:focus-visible { background: var(--green); color: var(--black); }
+.btn.red { color: var(--red); }
+.btn.red:hover, .btn.red:focus-visible { background: var(--red); color: var(--black); }
+.btn.disabled { color: var(--muted); cursor: not-allowed; pointer-events: none; box-shadow: 0 -3px 0 0 #555, 0 3px 0 0 #555, -3px 0 0 0 #555, 3px 0 0 0 #555; }
+
+.sprite { display: inline-block; line-height: 0; }
+.sprite svg { display: block; shape-rendering: crispEdges; }
+
+/* ---------- Header + pixel menu ---------- */
+.site-header { padding: 22px 0 10px; }
+.brand { font-family: var(--pixel); font-size: clamp(11px, 2.4vw, 15px); color: var(--cream); text-decoration: none; display: inline-block; margin: 0 4px 18px; line-height: 1.6; }
+.brand .amp { color: var(--red); }
+.brand:hover { color: var(--green); }
+
+.nav { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 4px 22px; padding: 0; list-style: none; align-items: center; }
+.nav a {
+  font-family: var(--pixel); font-size: 13px; text-decoration: none; color: var(--green);
+  background: var(--black); display: block; padding: 12px 16px 12px 30px; position: relative;
+  box-shadow: 0 -4px 0 0 var(--cream), 0 4px 0 0 var(--cream), -4px 0 0 0 var(--cream), 4px 0 0 0 var(--cream);
+}
+.nav a::before { content: "\25B6"; position: absolute; left: 10px; top: 13px; font-size: 11px; color: var(--red); visibility: hidden; }
+.nav a:hover, .nav a:focus-visible, .nav a[aria-current="page"] { color: var(--red); }
+.nav a:hover::before, .nav a:focus-visible::before, .nav a[aria-current="page"]::before { visibility: visible; }
+.nav .bag { margin-left: auto; }
+
+/* ---------- Hero: animated room + dialogue ---------- */
+.hero { position: relative; margin: 4px; box-shadow: 0 -4px 0 0 var(--cream), 0 4px 0 0 var(--cream), -4px 0 0 0 var(--cream), 4px 0 0 0 var(--cream); }
+.scene-wrap { position: relative; background: #1b1511; }
+#scene { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+.scene-wrap::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,.14) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0,0,0,.55) 100%);
+}
+
+/* Undertale-style dialogue box */
+.dialog { background: var(--black); padding: 18px 22px 14px; margin: 16px 4px 4px; box-shadow: 0 -4px 0 0 var(--cream), 0 4px 0 0 var(--cream), -4px 0 0 0 var(--cream), 4px 0 0 0 var(--cream); }
+.dialog p { font-size: clamp(20px, 2.4vw, 26px); margin: 0 0 4px; min-height: 1.25em; }
+.dialog .ask { margin-top: 10px; }
+.choices { display: flex; gap: 30px; margin-top: 8px; padding-left: 4px; }
+.choice { font-family: var(--pixel); font-size: 16px; background: none; border: 0; color: var(--cream); padding: 8px 8px 8px 34px; position: relative; cursor: pointer; }
+.choice .cursor { position: absolute; left: 6px; top: 50%; transform: translateY(-50%); visibility: hidden; }
+.choice:hover, .choice:focus-visible { color: var(--red); }
+.choice:hover .cursor, .choice:focus-visible .cursor { visibility: visible; }
+.choice:focus-visible { outline-offset: -2px; }
+
+@media (min-width: 900px) {
+  .dialog { position: absolute; left: 4%; right: 4%; bottom: 6%; margin: 0; }
+}
+
+/* ---------- Inventory (shop columns) ---------- */
+.section-title { text-align: center; margin: 44px 0 26px; color: var(--cream); }
+.section-title::before, .section-title::after { content: "\2022"; color: var(--red); margin: 0 14px; }
+
+.slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 30px; margin: 0 4px; }
+.slot { display: flex; flex-direction: column; margin: 0; }
+.slot-icon { height: 96px; display: flex; align-items: center; justify-content: center; background: #111; margin-bottom: 16px; }
+.slot-name { font-size: 20px; margin: 0; }
+.slot-sub { color: var(--muted); margin-bottom: 14px; }
+.slot .btn { margin-top: auto; align-self: flex-start; }
+.slot p { flex: 0 0 auto; margin-bottom: 20px; }
+
+/* ---------- Product cards / grid ---------- */
+.page-intro { max-width: 720px; margin: 8px 4px 26px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 30px; margin: 16px 4px; }
+.card { display: flex; flex-direction: column; margin: 0; }
+.card h3 { margin-bottom: 6px; }
+.card .klass { color: var(--muted); margin-bottom: 8px; }
+.card .price, .price { font-family: var(--pixel); font-size: 14px; color: var(--cream); margin: 4px 0 14px; }
+.card .btn { margin-top: auto; align-self: flex-start; }
+
+.art { position: relative; height: 130px; display: flex; align-items: center; justify-content: center; background: #111; margin-bottom: 14px; overflow: hidden; text-decoration: none; }
+.art img { max-width: 100%; max-height: 100%; }
+
+/* Subtle pixel-grid overlay for photos (the "8-bit real life" look) */
+.pixgrid { position: relative; }
+.pixgrid::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0,0,0,.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.28) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* ---------- Item page ---------- */
+.back { display: inline-block; font-family: var(--pixel); font-size: 11px; margin: 6px 4px 20px; text-decoration: none; }
+.item { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 34px; margin: 4px; align-items: start; }
+@media (max-width: 800px) { .item { grid-template-columns: 1fr; } }
+
+/* Pixelated dark-wood frame */
+.frame {
+  padding: 16px;
+  background: repeating-linear-gradient(90deg, #5a3a1c 0 8px, #4d3016 8px 16px);
+  box-shadow: 0 0 0 4px var(--wood-dark), 0 0 0 8px var(--cream);
+  margin: 8px;
+}
+.frame-inner { min-height: 300px; background: #0c0a08; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 4px var(--wood-dark); }
+.frame-inner img { max-width: 100%; display: block; }
+
+.item-text { margin: 4px; }
+.stats { margin: 0 0 18px; }
+.stats div { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 12px; }
+.stats dt { font-family: var(--pixel); font-size: 12px; color: var(--green); flex: 0 0 90px; padding-top: 5px; }
+.stats dd { margin: 0; flex: 1 1 200px; }
+.lore { margin-bottom: 18px; }
+.notice { color: var(--muted); font-size: 21px; }
+.warn { border-left: 4px solid var(--red); padding-left: 12px; color: var(--cream); }
+.msg { min-height: 1.3em; color: var(--green); margin: 8px 4px 0; }
+
+/* ---------- Bag ---------- */
+.bag-row { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; padding: 12px 0; border-bottom: 2px dashed #333; }
+.bag-row:last-of-type { border-bottom: 0; }
+.bag-row .nm { flex: 1 1 220px; }
+.bag-row .qty { font-family: var(--pixel); font-size: 12px; min-width: 2ch; text-align: center; display: inline-block; }
+.bag-total { font-family: var(--pixel); font-size: 14px; margin: 18px 0 10px; text-align: right; }
+.mini { font-family: var(--pixel); font-size: 11px; background: var(--black); color: var(--green); border: 3px solid var(--cream); padding: 6px 9px; cursor: pointer; }
+.mini:hover { color: var(--red); }
+
+/* ---------- Text pages ---------- */
+.stack > .box { margin-bottom: 30px; }
+
+/* ---------- Footer: end of level ---------- */
+.site-footer { margin-top: 50px; }
+.newsletter h2 { color: var(--green); }
+.newsletter form { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.newsletter input[type="email"] {
+  flex: 1 1 240px; font-family: var(--body); font-size: 24px; color: var(--cream); background: #111;
+  border: 3px solid var(--cream); padding: 8px 12px;
+}
+.newsletter input::placeholder { color: var(--muted); }
+.bottom-line { font-family: var(--pixel); font-size: clamp(10px, 2vw, 13px); text-align: center; color: var(--cream); margin: 34px 0 10px; line-height: 1.8; }
+.fine { text-align: center; color: var(--muted); font-size: 20px; }
+
+@media (max-width: 480px) {
+  body { font-size: 22px; }
+  .box { padding: 14px; }
+  .nav a { font-size: 12px; padding: 11px 12px 11px 26px; }
+  .choices { gap: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

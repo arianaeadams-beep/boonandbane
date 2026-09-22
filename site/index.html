@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{name} | Readings, Bone Talismans &amp; Folk Curios</title>
+  <meta name="description" content="Tarot readings, handmade bone talismans, and folk magic ingredients.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="wrap">
+    <section class="hero" aria-label="Welcome">
+      <div class="scene-wrap">
+        <canvas id="scene" width="320" height="210" role="img"
+          aria-label="A cozy pixel-art room: candles flicker on a wooden desk beside two skulls, and a window shows a starry sky with a blinking moon."></canvas>
+      </div>
+
+      <div class="dialog" id="dialog" role="group">
+        <p data-line>* It's a beautiful day outside.</p>
+        <p data-line>* You stumbled upon The Eclectic Boon &amp; Bane.</p>
+        <p data-line>* The universe is a sandbox, but human meaning fills your inventory.</p>
+        <p data-line class="ask">Ready to check your current stats?</p>
+        <div class="choices" role="group" aria-label="Your answer">
+          <button class="choice" id="choice-yes" type="button"><span class="cursor" data-sprite="heart" data-px="3"></span>YES</button>
+          <button class="choice" id="choice-no" type="button"><span class="cursor" data-sprite="heart" data-px="3"></span>NO</button>
+        </div>
+        <p id="dialog-reply" role="status" hidden></p>
+      </div>
+    </section>
+
+    <section id="shop" aria-labelledby="inv-h">
+      <h2 class="section-title" id="inv-h">INVENTORY</h2>
+      <div class="slots">
+        <article class="box slot">
+          <div class="slot-icon"><span data-sprite="card" data-px="9"></span></div>
+          <h3 class="slot-name">TALK</h3>
+          <div class="slot-sub">(Readings)</div>
+          <h4>"Consult the Oracle"</h4>
+          <p>Step up to the table. Let's read the human lore written in the cards and map out your current level modifiers.</p>
+          <a class="btn" href="talk.html">[ CHECK STATS ]</a>
+        </article>
+
+        <article class="box slot">
+          <div class="slot-icon"><span data-sprite="key" data-px="9"></span></div>
+          <h3 class="slot-name">EQUIP</h3>
+          <div class="slot-sub">(Talismans and tools)</div>
+          <h4>"Check Your Gear"</h4>
+          <p>Physical bone talismans forged with animist respect. Hand-carved keys to unlock your unique astral permissions.</p>
+          <a class="btn" href="equip.html">[ INSPECT ITEMS ]</a>
+        </article>
+
+        <article class="box slot">
+          <div class="slot-icon"><span data-sprite="potion" data-px="9"></span></div>
+          <h3 class="slot-name">CRAFT</h3>
+          <div class="slot-sub">(Spell ingredients)</div>
+          <h4>"Mix the Potion"</h4>
+          <p>Raw folk magic ingredients. Herbs, roots, and items to balance your environmental Boons and Banes.</p>
+          <a class="btn" href="craft.html">[ OPEN BAG ]</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/sprites.js"></script>
+  <script src="js/bag.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/hero.js"></script>
+</body>
+</html>
