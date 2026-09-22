@@ -1,6 +1,6 @@
 // Inquiry form handler
 (function() {
-  const WORKER_URL = 'https://boonandbane-inquiries.arianaeadams-beep.workers.dev/';
+  const WORKER_URL = 'https://boonandbane-inquiries.arianaeadams.workers.dev/';
   const form = document.getElementById('inquiry-form-element');
   const formContainer = document.getElementById('inquiry-form');
   const bagList = document.getElementById('bag-list');
