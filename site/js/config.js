@@ -1,7 +1,7 @@
 // Site-wide settings. Edit this file, not the HTML pages.
 window.SITE = {
   name: "The Eclectic Boon & Bane",
-  contactEmail: "hello@example.com", // TODO: replace with the real address
+  contactEmail: "boonandbaneshop@gmail.com",
   etsyUrl: "",                       // TODO: paste Etsy shop URL once it exists
   instagramUrl: "",                  // optional
 
