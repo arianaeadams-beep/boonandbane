@@ -67,13 +67,13 @@
       const result = await response.json();
 
       if (response.ok) {
-        statusEl.textContent = '✓ Inquiry sent! We\'ll be in touch soon.';
+        statusEl.textContent = '✓ Inquiry sent!';
         statusEl.style.color = 'green';
         form.reset();
         Bag.clear();
         setTimeout(() => {
-          window.location.href = 'index.html';
-        }, 2000);
+          window.location.href = 'inquiry-sent.html';
+        }, 600);
       } else {
         statusEl.textContent = '✗ Error: ' + (result.error || 'Failed to send');
         statusEl.style.color = 'red';
