@@ -3,7 +3,6 @@
   const WORKER_URL = 'https://boonandbane-inquiries.arianaeadams.workers.dev/';
   const form = document.getElementById('inquiry-form-element');
   const formContainer = document.getElementById('inquiry-form');
-  const bagList = document.getElementById('bag-list');
   const statusEl = document.getElementById('form-status');
 
   function showForm() {
@@ -31,6 +30,14 @@
       return;
     }
 
+    const emailVal = document.getElementById('email').value.trim();
+    const phoneVal = document.getElementById('phone').value.trim();
+    if (!emailVal && !phoneVal) {
+      statusEl.textContent = 'Please give us an email or a phone number so we can reach you.';
+      statusEl.style.color = 'red';
+      return;
+    }
+
     // Build the item details with product info
     const itemsWithDetails = items.map(bagItem => {
       const product = window.PRODUCTS.find(p => p.id === bagItem.id);
@@ -44,8 +51,8 @@
 
     const formData = new FormData();
     formData.append('name', document.getElementById('name').value);
-    formData.append('email', document.getElementById('email').value);
-    formData.append('phone', document.getElementById('phone').value);
+    formData.append('email', emailVal);
+    formData.append('phone', phoneVal);
     formData.append('items', JSON.stringify(itemsWithDetails));
 
     statusEl.textContent = 'Sending inquiry...';
