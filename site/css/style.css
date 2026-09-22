@@ -202,3 +202,58 @@ p { margin: 0 0 14px; }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* ---------- Inquiry Form ---------- */
+.form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-family: var(--pixel);
+  font-size: 13px;
+  color: var(--green);
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  font-family: var(--body);
+  font-size: 20px;
+  background: #111;
+  border: 3px solid var(--cream);
+  color: var(--cream);
+  padding: 8px 12px;
+}
+
+.form-group input::placeholder {
+  color: var(--muted);
+}
+
+.form-group input:focus {
+  outline: 3px dashed var(--green);
+  outline-offset: -3px;
+}
+
+.btn-inquire {
+  font-family: var(--pixel);
+  font-size: 13px;
+  background: var(--black);
+  color: var(--green);
+  padding: 12px 14px;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 -3px 0 0 var(--cream), 0 3px 0 0 var(--cream), -3px 0 0 0 var(--cream), 3px 0 0 0 var(--cream);
+}
+
+.btn-inquire:hover, .btn-inquire:focus-visible {
+  background: var(--green);
+  color: var(--black);
+}
+
+#form-status {
+  margin-top: 12px;
+  font-family: var(--pixel);
+  font-size: 13px;
+  min-height: 1.4em;
+}

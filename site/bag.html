@@ -14,6 +14,31 @@
   <main class="wrap">
     <h1>YOUR BAG</h1>
     <div class="box" id="bag-list"></div>
+
+    <div id="inquiry-form" class="box" style="margin-top: 2em; display: none;">
+      <h2>INQUIRE ABOUT THESE ITEMS</h2>
+      <p>Fill out your details and we'll get in touch to finalize your purchase.</p>
+
+      <form id="inquiry-form-element">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <button type="submit" class="btn-inquire">SEND INQUIRY</button>
+        <p id="form-status"></p>
+      </form>
+    </div>
   </main>
   <footer id="site-footer"></footer>
 
@@ -23,5 +48,6 @@
   <script src="js/bag.js"></script>
   <script src="js/layout.js"></script>
   <script src="js/shop.js"></script>
+  <script src="js/inquiry.js"></script>
 </body>
 </html>
